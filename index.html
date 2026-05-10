@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Photography</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f5f2;
+      color: #333;
+      text-align: center;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3)
+      ),
+      url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+      max-width: 600px;
+    }
+
+    .button {
+      margin-top: 2rem;
+      padding: 14px 28px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <h1>Wedding Photography</h1>
+    <p>Capturing emotional and timeless moments.</p>
+    <a class="button" href="mailto:hello@example.com">
+      Contact
+    </a>
+  </section>
+</body>
+</html>
