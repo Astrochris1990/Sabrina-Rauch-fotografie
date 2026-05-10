@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabrina Rauch | Hochzeitsfotografie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --light-beige: #f9f7f2;
-            --dark-grey: #1a1a1a;
-            --gold-muted: #96885f;
+            --bg-light: #fdfcfb;
+            --text-dark: #1a1a1a;
+            --accent: #b5a478; /* Muted Gold */
             --white: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --spacing: 80px;
         }
 
         * {
@@ -20,350 +20,293 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--white);
-            color: var(--dark-grey);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, .brand-name {
+        h1, h2, h3 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* --- Navigation --- */
         nav {
-            position: fixed;
+            position: absolute;
             top: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 25px 5%;
-            background: rgba(255, 255, 255, 0.98);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            align-items: center;
+            padding: 30px 5%;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
         }
 
-        .brand-name {
-            font-size: 1.6rem;
-            letter-spacing: 3px;
-            color: var(--dark-grey);
+        .nav-logo {
+            color: var(--white);
             text-decoration: none;
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 4px;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
-            list-style: none;
-            align-items: center;
         }
 
         .nav-links a {
+            color: var(--white);
             text-decoration: none;
-            color: var(--dark-grey);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 2px;
-            transition: var(--transition);
+            text-transform: uppercase;
+            transition: opacity 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--gold-muted);
-        }
+        .nav-links a:hover { opacity: 0.7; }
 
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), 
+                        url('IMG-20260503-WA0009.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
         }
 
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
             margin-bottom: 10px;
-            letter-spacing: 10px;
         }
 
-        .hero-text p {
-            font-size: 0.9rem;
-            letter-spacing: 5px;
+        .hero-content p {
+            font-size: 1rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
             font-weight: 200;
         }
 
-        /* --- Intro Section --- */
-        .intro {
-            padding: 120px 10%;
+        /* --- About Section --- */
+        .section {
+            padding: var(--spacing) 10%;
+        }
+
+        .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 60px;
             align-items: center;
-            background: var(--light-beige);
         }
 
-        .intro-image img {
-            width: 100%;
-            height: auto;
-            box-shadow: 20px 20px 0px var(--gold-muted);
-        }
-
-        .intro-content h2 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .intro-content p {
+        .about-text h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            font-size: 1.05rem;
-            color: #444;
         }
 
-        /* --- Experience & Prices --- */
-        .stats {
-            padding: 80px 10%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            color: var(--gold-muted);
-        }
-
-        .stat-item p {
+        .experience-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--accent);
+            margin-bottom: 20px;
             font-size: 0.8rem;
-            text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        /* --- Gallery --- */
-        .gallery {
-            padding: 100px 5%;
-        }
-
-        .gallery h2 {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5rem;
+        /* --- Gallery Grid --- */
+        .gallery-container {
+            padding: 40px 5%;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 15px;
         }
 
-        .gallery-grid img {
+        .gallery-item {
+            height: 500px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .gallery-item img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
-            transition: var(--transition);
-            filter: sepia(20%);
+            transition: transform 0.8s ease;
         }
 
-        .gallery-grid img:hover {
-            filter: sepia(0%);
-            transform: scale(1.02);
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
-        /* --- Contact & Price --- */
-        .contact {
-            padding: 100px 10%;
-            background: var(--dark-grey);
+        /* --- Price & Contact --- */
+        .contact-section {
+            background-color: #1a1a1a;
             color: var(--white);
-        }
-
-        .contact-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
+            grid-template-columns: 1fr 1.2fr;
         }
 
-        .price-notice {
-            padding: 40px;
-            border: 1px solid var(--gold-muted);
-            height: fit-content;
+        .contact-info {
+            padding: var(--spacing) 10%;
+            background: #222;
         }
 
-        .price-notice h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
+        .price-box {
+            margin-top: 40px;
+            padding: 30px;
+            border: 1px solid rgba(181, 164, 120, 0.3);
+        }
+
+        .contact-form {
+            padding: var(--spacing) 10%;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         input, textarea {
             width: 100%;
-            padding: 15px;
+            padding: 15px 0;
             background: transparent;
             border: none;
             border-bottom: 1px solid rgba(255,255,255,0.2);
             color: white;
             font-family: inherit;
-            margin-top: 5px;
-        }
-
-        input:focus, textarea:focus {
             outline: none;
-            border-color: var(--gold-muted);
         }
 
-        button {
-            margin-top: 30px;
-            background: var(--gold-muted);
+        input:focus { border-bottom-color: var(--accent); }
+
+        .btn {
+            background: var(--accent);
             color: white;
+            padding: 20px 50px;
             border: none;
-            padding: 18px 45px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             cursor: pointer;
-            transition: var(--transition);
-        }
-
-        button:hover {
-            background: #b5a478;
+            width: 100%;
+            margin-top: 20px;
         }
 
         /* --- Footer --- */
         footer {
             padding: 40px;
             text-align: center;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            background: var(--dark-grey);
-            color: rgba(255,255,255,0.5);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            background: #111;
+            color: #555;
         }
 
-        /* Responsive Fixes */
-        @media (max-width: 900px) {
-            .contact-layout { grid-template-columns: 1fr; gap: 50px; }
-            .intro { padding: 60px 5%; }
-            .nav-links { display: none; } /* Mobile Menu simplify */
+        /* Responsive Settings */
+        @media (max-width: 968px) {
+            .contact-section { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .section { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="brand-name">Sabrina Rauch</a>
-        <ul class="nav-links">
-            <li><a href="#about">Portrait</a></li>
-            <li><a href="#gallery">Portfolio</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
+        <a href="#" class="nav-logo">S. RAUCH</a>
+        <div class="nav-links">
+            <a href="#about">Über mich</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Kontakt</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-text">
-            <p>Authentische Momente</p>
+    <header class="hero">
+        <div class="hero-content">
+            <p>Eure Liebe in Licht gefasst</p>
             <h1>Sabrina Rauch</h1>
-            <p>Fotografie mit Seele</p>
+            <p>Professional Wedding Photographer</p>
+        </div>
+    </header>
+
+    <section class="section about-grid" id="about">
+        <div class="about-text">
+            <div class="experience-badge">10+ JAHRE ERFAHRUNG</div>
+            <h2>Die Ästhetik des Moments</h2>
+            <p>Mit über einem Jahrzehnt Erfahrung hinter der Linse habe ich gelernt, dass eine gute Fotografie nicht nur gesehen, sondern gefühlt werden muss.</p>
+            <p>Ich begleite euch unauffällig und schaffe Bilder, die auch nach Jahrzehnten noch die gleiche Gänsehaut auslösen wie am Tag eures Ja-Wortes.</p>
+        </div>
+        <div class="about-img">
+            <img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sabrina Rauch Portrait" style="width:100%; height: auto;">
         </div>
     </section>
 
-    <section class="stats">
-        <div class="stat-item">
-            <h3>10+</h3>
-            <p>Jahre Erfahrung</p>
-        </div>
-        <div class="stat-item">
-            <h3>350+</h3>
-            <p>Begleitete Hochzeiten</p>
-        </div>
-        <div class="stat-item">
-            <h3>&infin;</h3>
-            <p>Liebe zum Detail</p>
-        </div>
-    </section>
-
-    <section class="intro" id="about">
-        <div class="intro-image">
-            <img src="20260501_082958.jpg" alt="Sabrina Rauch">
-        </div>
-        <div class="intro-content">
-            <h2>Hinter der Kamera</h2>
-            <p>Mein Name ist Sabrina Rauch. Mit über einem Jahrzehnt Erfahrung in der Hochzeitsfotografie habe ich gelernt, dass die leisesten Momente oft die lautesten Geschichten erzählen.</p>
-            <p>Ich bin keine bloße Dienstleisterin – ich bin die stille Beobachterin, die das Lachen eurer Großeltern, die Tränen eurer besten Freunde und den einen, tiefen Blick zwischen euch für die Ewigkeit konserviert.</p>
-        </div>
-    </section>
-
-    <section class="gallery" id="gallery">
-        <h2>Impressionen</h2>
+    <section class="gallery-container" id="portfolio">
+        <h2 style="text-align: center; margin-bottom: 40px;">Portfolio</h2>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" alt="Wedding 1">
-            <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&q=80&w=800" alt="Wedding 2">
-            <img src="https://images.unsplash.com/photo-1519225495810-75178300811b?auto=format&fit=crop&q=80&w=800" alt="Wedding 3">
-            <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&q=80&w=800" alt="Wedding 4">
-            <img src="https://images.unsplash.com/photo-1465495910483-0d6745778503?auto=format&fit=crop&q=80&w=800" alt="Wedding 5">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800" alt="Wedding 6">
+            <div class="gallery-item"><img src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding Detail"></div>
+            <div class="gallery-item"><img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bride and Groom"></div>
+            <div class="gallery-item"><img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremony"></div>
+            <div class="gallery-item"><img src="https://images.pexels.com/photos/948185/pexels-photo-948185.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding Ring"></div>
+            <div class="gallery-item"><img src="https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding Dance"></div>
+            <div class="gallery-item"><img src="https://images.pexels.com/photos/17834/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800" alt="Bouquet"></div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="contact-layout">
-            <div class="contact-info">
-                <h2>Lasst uns planen</h2>
-                <p style="margin-bottom: 40px;">Eure Hochzeit ist so individuell wie ihr. Gerne erstelle ich euch ein maßgeschneidertes Angebot.</p>
-                
-                <div class="price-notice">
-                    <h3>Investition</h3>
-                    <p>Jede Reportage wird individuell kalkuliert.</p>
-                    <p><strong>Preis auf Anfrage</strong></p>
-                </div>
+    <section class="contact-section" id="contact">
+        <div class="contact-info">
+            <h2>Let's Create Magic</h2>
+            <p>Jede Hochzeit ist einzigartig. Ich freue mich darauf, mehr über eure Pläne zu erfahren.</p>
+            
+            <div class="price-box">
+                <h3>Investition</h3>
+                <p style="color: var(--accent); font-weight: bold; margin-top: 10px;">PREIS AUF ANFRAGE</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Da jede Begleitung so individuell ist wie ihr Paar, erstelle ich maßgeschneiderte Pakete.</p>
             </div>
+        </div>
 
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label>Ihr Name</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>E-Mail Adresse</label>
-                        <input type="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Wann feiert ihr?</label>
-                        <input type="text" placeholder="TT.MM.JJJJ">
-                    </div>
-                    <div class="form-group">
-                        <label>Erzählt mir von euren Plänen</label>
-                        <textarea rows="4"></textarea>
-                    </div>
-                    <button type="submit">Anfrage Absenden</button>
-                </form>
-            </div>
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="NAME" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="EMAIL" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="DATUM DER HOCHZEIT">
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="ERZÄHLT MIR VON EUCH..."></textarea>
+                </div>
+                <button type="submit" class="btn">Anfrage Senden</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>SABRINA RAUCH | FOTOGRAFIE &copy; 2026</p>
+        <p>&copy; 2026 SABRINA RAUCH | PHOTOGRAPHY ARCHIVE</p>
     </footer>
 
     <script>
-        // Einfacher Formular-Submit
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Danke für die Anfrage, Sabrina wird sich bald bei euch melden!');
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
