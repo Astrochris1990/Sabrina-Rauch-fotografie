@@ -1,74 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Photography</title>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Elegante Hochzeitsfotografie für Paare, die zeitlose, emotionale und natürliche Bilder lieben." />
+    <title>Maison Amour — Hochzeitsfotografie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Maison Amour Startseite">
+        <span>Maison</span><em>Amour</em>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span>
+      </button>
+      <nav class="main-nav" data-nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#approach">Stil</a>
+        <a href="#services">Angebote</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </header>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f5f2;
-      color: #333;
-      text-align: center;
-    }
+    <main id="top">
+      <section class="hero section" aria-label="Start">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Hochzeitsfotografie · Österreich & Europa</p>
+          <h1>Für Bilder, die sich anfühlen wie ein leiser Moment für immer.</h1>
+          <p class="lead">Editoriale Eleganz, echtes Lachen und poetische Details — fotografiert mit ruhiger Präsenz und einem Blick für das, was zwischen den großen Augenblicken passiert.</p>
+          <div class="hero__actions">
+            <a class="btn btn--dark" href="#contact">Termin anfragen</a>
+            <a class="btn btn--ghost" href="#portfolio">Portfolio ansehen</a>
+          </div>
+        </div>
+        <div class="hero__image reveal" style="--delay: 120ms">
+          <img src="assets/img/IMG-20260503-WA0009.jpg" alt="Stimmungsvolles Hochzeitsfoto" />
+          <div class="hero__card">
+            <span>Fine Art Wedding</span>
+            <strong>Natürliche Eleganz</strong>
+          </div>
+        </div>
+      </section>
 
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(
-        rgba(0,0,0,0.3),
-        rgba(0,0,0,0.3)
-      ),
-      url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      color: white;
-    }
+      <section class="intro section reveal">
+        <p class="section-kicker">Zeitlos, weich, ehrlich</p>
+        <h2>Eine visuelle Sprache für Paare, die Ästhetik lieben — aber nie inszeniert wirken möchten.</h2>
+      </section>
 
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
+      <section id="portfolio" class="portfolio section">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Portfolio</p>
+          <h2>Ausgewählte Geschichten</h2>
+        </div>
+        <div class="gallery">
+          <figure class="gallery__item gallery__item--large reveal">
+            <img src="assets/img/IMG-20260503-WA0009.jpg" alt="Elegantes Hochzeitsmotiv" />
+            <figcaption>Golden Hour Ceremony</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" style="--delay: 80ms">
+            <img src="assets/img/IMG-20260503-WA0009.jpg" alt="Detailaufnahme einer Hochzeit" />
+            <figcaption>Details & Florals</figcaption>
+          </figure>
+          <figure class="gallery__item reveal" style="--delay: 160ms">
+            <img src="assets/img/IMG-20260503-WA0009.jpg" alt="Brautpaar im natürlichen Licht" />
+            <figcaption>Quiet Portraits</figcaption>
+          </figure>
+        </div>
+      </section>
 
-    p {
-      font-size: 1.3rem;
-      max-width: 600px;
-    }
+      <section id="approach" class="approach section">
+        <div class="approach__media reveal">
+          <img src="assets/img/IMG-20260503-WA0009.jpg" alt="Atmosphärische Hochzeitsfotografie" />
+        </div>
+        <div class="approach__text reveal" style="--delay: 120ms">
+          <p class="section-kicker">Mein Stil</p>
+          <h2>Unaufdringlich präsent. Klar komponiert. Warm erzählt.</h2>
+          <p>Ich begleite euren Tag mit Empathie, Ruhe und einem sicheren Auge für Licht, Formen und echte Verbindung. Das Ergebnis: Bilder, die luxuriös wirken, ohne distanziert zu sein.</p>
+          <ul class="check-list">
+            <li>Reportage mit editorialem Feingefühl</li>
+            <li>Sanfte Farbwelt und natürliche Hauttöne</li>
+            <li>Führung nur dann, wenn sie euch Sicherheit gibt</li>
+          </ul>
+        </div>
+      </section>
 
-    .button {
-      margin-top: 2rem;
-      padding: 14px 28px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-    }
+      <section id="services" class="services section">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Angebote</p>
+          <h2>Für intime Feiern und große Wochenenden</h2>
+        </div>
+        <div class="cards">
+          <article class="service-card reveal">
+            <span class="card-number">01</span>
+            <h3>Standesamt</h3>
+            <p>Kurze, stilvolle Begleitung für euer Ja-Wort, Paarportraits und die wichtigsten Gratulationen.</p>
+          </article>
+          <article class="service-card reveal" style="--delay: 100ms">
+            <span class="card-number">02</span>
+            <h3>Ganztagesreportage</h3>
+            <p>Vom Getting Ready bis zur Party — eine vollständige Erzählung eures Hochzeitstages.</p>
+          </article>
+          <article class="service-card reveal" style="--delay: 200ms">
+            <span class="card-number">03</span>
+            <h3>Destination Wedding</h3>
+            <p>Mehrtagige Begleitung für Hochzeiten in Österreich, Italien, Frankreich und darüber hinaus.</p>
+          </article>
+        </div>
+      </section>
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
+      <section class="quote section reveal">
+        <blockquote>„Die schönsten Hochzeitsbilder entstehen dort, wo Vertrauen, Licht und echte Nähe zusammenkommen.“</blockquote>
+      </section>
 
-      p {
-        padding: 0 20px;
-      }
-    }
-  </style>
-</head>
+      <section id="contact" class="contact section">
+        <div class="contact__copy reveal">
+          <p class="section-kicker">Kontakt</p>
+          <h2>Erzählt mir von eurem Tag.</h2>
+          <p>Teilt eure Pläne, eure Location und was euch wichtig ist. Ich melde mich persönlich mit Verfügbarkeit und einem passenden Angebot.</p>
+          <a class="contact-mail" href="mailto:hello@maison-amour.at">hello@maison-amour.at</a>
+        </div>
+        <form class="contact-form reveal" style="--delay: 120ms" action="https://formspree.io/f/DEINE-ID" method="POST" data-contact-form>
+          <label>
+            Name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            E-Mail
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            Hochzeitsdatum
+            <input type="date" name="date" />
+          </label>
+          <label>
+            Location
+            <input type="text" name="location" placeholder="z. B. Schloss, Weingut, Standesamt" />
+          </label>
+          <label class="full">
+            Eure Nachricht
+            <textarea name="message" rows="6" required placeholder="Wie stellt ihr euch eure Begleitung vor?"></textarea>
+          </label>
+          <input type="hidden" name="_subject" value="Neue Anfrage über Maison Amour Website" />
+          <button class="btn btn--dark full" type="submit">Anfrage senden</button>
+          <p class="form-note" data-form-note>Für GitHub Pages: Formspree-ID in der action ersetzen oder alternativ mailto nutzen.</p>
+        </form>
+      </section>
+    </main>
 
-<body>
-  <section class="hero">
-    <h1>Wedding Photography</h1>
-    <p>Capturing emotional and timeless moments.</p>
-    <a class="button" href="mailto:hello@example.com">
-      Contact
-    </a>
-  </section>
-</body>
+    <footer class="site-footer">
+      <p>© <span data-year></span> Maison Amour</p>
+      <div>
+        <a href="#top">Nach oben</a>
+        <a href="mailto:hello@maison-amour.at">E-Mail</a>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
