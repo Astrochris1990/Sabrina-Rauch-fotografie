@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumière & Liebe | Hochzeitsfotografie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>Sabrina Rauch | Hochzeitsfotografie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c2c2c;
-            --accent-color: #a68a64; /* Ein sanfter Gold/Taupe Ton */
-            --bg-color: #ffffff;
-            --section-padding: 100px 10% ;
+            --light-beige: #f9f7f2;
+            --dark-grey: #1a1a1a;
+            --gold-muted: #96885f;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -19,17 +20,22 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--primary-color);
-            line-height: 1.6;
-            background-color: var(--bg-color);
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-grey);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            text-transform: uppercase;
         }
 
         /* --- Navigation --- */
@@ -37,291 +43,327 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 30px 10%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 5%;
+            background: rgba(255, 255, 255, 0.98);
             z-index: 1000;
-            transition: 0.3s;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .brand-name {
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            color: var(--dark-grey);
+            text-decoration: none;
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
-            gap: 40px;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            color: var(--dark-grey);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--gold-muted);
         }
 
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('IMG-20260503-WA0009.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+            color: var(--white);
             text-align: center;
-            color: white;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: fadeIn 2s ease;
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 10px;
+            letter-spacing: 10px;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            letter-spacing: 4px;
+        .hero-text p {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            font-weight: 200;
         }
 
-        /* --- About Section --- */
-        .about {
-            padding: var(--section-padding);
+        /* --- Intro Section --- */
+        .intro {
+            padding: 120px 10%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
             align-items: center;
+            background: var(--light-beige);
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .about-image img {
+        .intro-image img {
             width: 100%;
-            filter: grayscale(20%);
-            transition: 0.5s;
+            height: auto;
+            box-shadow: 20px 20px 0px var(--gold-muted);
         }
 
-        /* --- Gallery Placeholder --- */
-        .gallery-preview {
-            padding: var(--section-padding);
-            background: #fcfaf8;
+        .intro-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .intro-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* --- Experience & Prices --- */
+        .stats {
+            padding: 80px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
             text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--gold-muted);
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Gallery --- */
+        .gallery {
+            padding: 100px 5%;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
         }
 
-        .gallery-item {
-            aspect-ratio: 1/1;
-            background: #eee;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        /* Hier setzen wir dein Bild als Platzhalter ein */
-        .gallery-item.featured {
-            background: url('IMG-20260503-WA0009.jpg') no-repeat center center/cover;
+        .gallery-grid img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: sepia(20%);
         }
 
-        /* --- Contact Form --- */
+        .gallery-grid img:hover {
+            filter: sepia(0%);
+            transform: scale(1.02);
+        }
+
+        /* --- Contact & Price --- */
         .contact {
-            padding: var(--section-padding);
+            padding: 100px 10%;
+            background: var(--dark-grey);
+            color: var(--white);
         }
 
-        .contact-container {
-            max-width: 700px;
-            margin: 0 auto;
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
         }
 
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+        .price-notice {
+            padding: 40px;
+            border: 1px solid var(--gold-muted);
+            height: fit-content;
+        }
+
+        .price-notice h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
         .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 20px;
         }
 
         input, textarea {
             width: 100%;
             padding: 15px;
-            border: 1px solid #ddd;
-            font-family: 'Inter', sans-serif;
-            outline: none;
-            transition: border-color 0.3s;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-family: inherit;
+            margin-top: 5px;
         }
 
         input:focus, textarea:focus {
-            border-color: var(--accent-color);
+            outline: none;
+            border-color: var(--gold-muted);
         }
 
         button {
-            background: var(--primary-color);
+            margin-top: 30px;
+            background: var(--gold-muted);
             color: white;
-            padding: 15px 40px;
             border: none;
+            padding: 18px 45px;
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
+            transition: var(--transition);
         }
 
         button:hover {
-            background: var(--accent-color);
+            background: #b5a478;
         }
 
         /* --- Footer --- */
         footer {
-            padding: 50px 10%;
-            background: #1a1a1a;
-            color: white;
+            padding: 40px;
             text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            background: var(--dark-grey);
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .about { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; }
-            .hero-content h1 { font-size: 2.5rem; }
-            nav { padding: 20px 5%; }
-            .nav-links { display: none; }
+        /* Responsive Fixes */
+        @media (max-width: 900px) {
+            .contact-layout { grid-template-columns: 1fr; gap: 50px; }
+            .intro { padding: 60px 5%; }
+            .nav-links { display: none; } /* Mobile Menu simplify */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Lumière</div>
+        <a href="#" class="brand-name">Sabrina Rauch</a>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Über mich</a></li>
+            <li><a href="#about">Portrait</a></li>
             <li><a href="#gallery">Portfolio</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <p>Eure Geschichte in Bildern</p>
-            <h1>Zeitlose Augenblicke</h1>
+    <section class="hero">
+        <div class="hero-text">
+            <p>Authentische Momente</p>
+            <h1>Sabrina Rauch</h1>
+            <p>Fotografie mit Seele</p>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-image">
-            <img src="IMG-20260503-WA0009.jpg" alt="Hochzeitsfotografin">
+    <section class="stats">
+        <div class="stat-item">
+            <h3>10+</h3>
+            <p>Jahre Erfahrung</p>
         </div>
-        <div class="about-text">
-            <h2>Die Kunst des Augenblicks</h2>
-            <p>Ich glaube daran, dass die schönsten Momente jene sind, die unbemerkt geschehen. Mein Ziel ist es, eure Liebe so authentisch und pur festzuhalten, wie sie sich in diesem einen Moment anfühlt.</p>
-            <p>Mit einem Auge für Details und einer Leidenschaft für natürliches Licht begleite ich euch an eurem großen Tag – unaufdringlich, aber immer präsent.</p>
+        <div class="stat-item">
+            <h3>350+</h3>
+            <p>Begleitete Hochzeiten</p>
+        </div>
+        <div class="stat-item">
+            <h3>&infin;</h3>
+            <p>Liebe zum Detail</p>
         </div>
     </section>
 
-    <section class="gallery-preview" id="gallery">
-        <h2>Portfolio</h2>
+    <section class="intro" id="about">
+        <div class="intro-image">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800" alt="Sabrina Rauch">
+        </div>
+        <div class="intro-content">
+            <h2>Hinter der Kamera</h2>
+            <p>Mein Name ist Sabrina Rauch. Mit über einem Jahrzehnt Erfahrung in der Hochzeitsfotografie habe ich gelernt, dass die leisesten Momente oft die lautesten Geschichten erzählen.</p>
+            <p>Ich bin keine bloße Dienstleisterin – ich bin die stille Beobachterin, die das Lachen eurer Großeltern, die Tränen eurer besten Freunde und den einen, tiefen Blick zwischen euch für die Ewigkeit konserviert.</p>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h2>Impressionen</h2>
         <div class="gallery-grid">
-            <div class="gallery-item featured"></div>
-            <div class="gallery-item" style="background-color: #f1efed;"></div>
-            <div class="gallery-item featured"></div>
-            <div class="gallery-item" style="background-color: #f1efed;"></div>
-            <div class="gallery-item featured"></div>
-            <div class="gallery-item" style="background-color: #f1efed;"></div>
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" alt="Wedding 1">
+            <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&q=80&w=800" alt="Wedding 2">
+            <img src="https://images.unsplash.com/photo-1519225495810-75178300811b?auto=format&fit=crop&q=80&w=800" alt="Wedding 3">
+            <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&q=80&w=800" alt="Wedding 4">
+            <img src="https://images.unsplash.com/photo-1465495910483-0d6745778503?auto=format&fit=crop&q=80&w=800" alt="Wedding 5">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800" alt="Wedding 6">
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <div class="contact-container">
-            <h2>Schreibt mir</h2>
-            <form id="weddingContact">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required>
+        <div class="contact-layout">
+            <div class="contact-info">
+                <h2>Lasst uns planen</h2>
+                <p style="margin-bottom: 40px;">Eure Hochzeit ist so individuell wie ihr. Gerne erstelle ich euch ein maßgeschneidertes Angebot.</p>
+                
+                <div class="price-notice">
+                    <h3>Investition</h3>
+                    <p>Jede Reportage wird individuell kalkuliert.</p>
+                    <p><strong>Preis auf Anfrage</strong></p>
                 </div>
-                <div class="form-group">
-                    <label for="email">E-Mail</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Datum der Hochzeit</label>
-                    <input type="date" id="date">
-                </div>
-                <div class="form-group">
-                    <label for="message">Eure Nachricht</label>
-                    <textarea id="message" rows="5" required></textarea>
-                </div>
-                <button type="submit">Anfrage senden</button>
-            </form>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Ihr Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail Adresse</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Wann feiert ihr?</label>
+                        <input type="text" placeholder="TT.MM.JJJJ">
+                    </div>
+                    <div class="form-group">
+                        <label>Erzählt mir von euren Plänen</label>
+                        <textarea rows="4"></textarea>
+                    </div>
+                    <button type="submit">Anfrage Absenden</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">Lumière Hochzeitsfotografie</div>
-        <p>&copy; 2026 Alle Rechte vorbehalten.</p>
+        <p>SABRINA RAUCH | FOTOGRAFIE &copy; 2026</p>
     </footer>
 
     <script>
-        // Smooth Scrolling für die Navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Einfaches Handling für das Kontaktformular
-        document.getElementById('weddingContact').addEventListener('submit', function(e) {
+        // Einfacher Formular-Submit
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Vielen Dank für deine Nachricht! Ich werde mich in Kürze bei dir melden.');
-            this.reset();
+            alert('Danke für die Anfrage, Sabrina wird sich bald bei euch melden!');
         });
     </script>
 </body>
