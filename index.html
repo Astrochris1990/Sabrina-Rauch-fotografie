@@ -1,313 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabrina Rauch | Hochzeitsfotografie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-light: #fdfcfb;
-            --text-dark: #1a1a1a;
-            --accent: #b5a478; /* Muted Gold */
-            --white: #ffffff;
-            --spacing: 80px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- Navigation --- */
-        nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 5%;
-            z-index: 100;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
-        }
-
-        .nav-logo {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 4px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover { opacity: 0.7; }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), 
-                        url('IMG-20260503-WA0009.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 10vw, 5.5rem);
-            margin-bottom: 10px;
-        }
-
-        .hero-content p {
-            font-size: 1rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-weight: 200;
-        }
-
-        /* --- About Section --- */
-        .section {
-            padding: var(--spacing) 10%;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .experience-badge {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 1px solid var(--accent);
-            margin-bottom: 20px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        /* --- Gallery Grid --- */
-        .gallery-container {
-            padding: 40px 5%;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery-item {
-            height: 500px;
-            overflow: hidden;
-            background-color: #eee;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* --- Price & Contact --- */
-        .contact-section {
-            background-color: #1a1a1a;
-            color: var(--white);
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-        }
-
-        .contact-info {
-            padding: var(--spacing) 10%;
-            background: #222;
-        }
-
-        .price-box {
-            margin-top: 40px;
-            padding: 30px;
-            border: 1px solid rgba(181, 164, 120, 0.3);
-        }
-
-        .contact-form {
-            padding: var(--spacing) 10%;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 15px 0;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            font-family: inherit;
-            outline: none;
-        }
-
-        input:focus { border-bottom-color: var(--accent); }
-
-        .btn {
-            background: var(--accent);
-            color: white;
-            padding: 20px 50px;
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            padding: 40px;
-            text-align: center;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            background: #111;
-            color: #555;
-        }
-
-        /* Responsive Settings */
-        @media (max-width: 968px) {
-            .contact-section { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .section { padding: 60px 5%; }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sabrina Rauch Fotografie – Hochzeiten, Paare und echte Momente in natürlichem, warmem Bildstil." />
+  <meta name="theme-color" content="#efe7dc" />
+  <title>Sabrina Rauch Fotografie | Authentische Hochzeitsfotografie</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-    <nav>
-        <a href="#" class="nav-logo">S. RAUCH</a>
-        <div class="nav-links">
-            <a href="#about">Über mich</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Kontakt</a>
-        </div>
+  <header class="site-header" id="home">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="#home" aria-label="Sabrina Rauch Fotografie Startseite">
+        <span>Sabrina</span><span>Rauch</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false">Menü</button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">Über mich</a>
+        <a href="#angebot">Angebot</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <p>Eure Liebe in Licht gefasst</p>
-            <h1>Sabrina Rauch</h1>
-            <p>Professional Wedding Photographer</p>
+    <section class="hero" aria-label="Hero Bereich">
+      <div class="hero__image-wrap reveal">
+        <img src="header.jpg" alt="Natürliches Hochzeitsfoto mit warmem Licht" data-fallback="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85" />
+      </div>
+      <div class="hero__content reveal">
+        <p class="eyebrow">Wedding · Couples · Stories</p>
+        <h1>Echte Momente. Sanftes Licht. Bilder, die bleiben.</h1>
+        <p>Ich bin Sabrina Rauch und fotografiere Menschen, die sich in ihren Bildern wiedererkennen möchten – ungestellt, warm und voller Gefühl.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#kontakt">Anfrage senden</a>
+          <a class="button button--ghost" href="#portfolio">Galerie ansehen</a>
         </div>
-    </header>
+      </div>
+    </section>
+  </header>
 
-    <section class="section about-grid" id="about">
-        <div class="about-text">
-            <div class="experience-badge">10+ JAHRE ERFAHRUNG</div>
-            <h2>Die Ästhetik des Moments</h2>
-            <p>Mit über einem Jahrzehnt Erfahrung hinter der Linse habe ich gelernt, dass eine gute Fotografie nicht nur gesehen, sondern gefühlt werden muss.</p>
-            <p>Ich begleite euch unauffällig und schaffe Bilder, die auch nach Jahrzehnten noch die gleiche Gänsehaut auslösen wie am Tag eures Ja-Wortes.</p>
+  <main id="main">
+    <section class="intro section-padding">
+      <div class="container intro__grid">
+        <div class="intro__text reveal">
+          <p class="eyebrow">Sabrina Rauch Fotografie</p>
+          <h2>Fotografie, die sich anfühlt wie der Moment selbst.</h2>
         </div>
-        <div class="about-img">
-            <img src="https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sabrina Rauch Portrait" style="width:100%; height: auto;">
+        <div class="intro__copy reveal">
+          <p>Ob Hochzeit, Verlobungsshooting oder persönliche Portraitserie: Ich begleite euch aufmerksam, ruhig und mit einem Blick für die kleinen Gesten zwischen den großen Augenblicken.</p>
+          <p>Meine Bilder leben von Nähe, Bewegung, Details und natürlichem Licht. Kein starres Posieren – sondern ein entspannter Rahmen, in dem ihr einfach ihr selbst sein könnt.</p>
         </div>
+      </div>
     </section>
 
-    <section class="gallery-container" id="portfolio">
-        <h2 style="text-align: center; margin-bottom: 40px;">Portfolio</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding Detail"></div>
-            <div class="gallery-item"><img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bride and Groom"></div>
-            <div class="gallery-item"><img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremony"></div>
-            <div class="gallery-item"><img src="https://images.pexels.com/photos/948185/pexels-photo-948185.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding Ring"></div>
-            <div class="gallery-item"><img src="https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding Dance"></div>
-            <div class="gallery-item"><img src="https://images.pexels.com/photos/17834/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800" alt="Bouquet"></div>
+    <section class="portfolio section-padding" id="portfolio">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Ein Blick in meine Arbeit</h2>
+          <p>Eine ruhige, kuratierte Auswahl aus Hochzeiten, Ringen, Details und persönlichen Geschichten.</p>
         </div>
+
+        <div class="masonry gallery" aria-label="Bildergalerie">
+          <figure class="gallery__item gallery__item--tall reveal">
+            <img src="rings.jpeg" alt="Trauringe als Detailaufnahme" data-fallback="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=85" />
+          </figure>
+          <figure class="gallery__item reveal">
+            <img src="rings2.jpeg" alt="Elegante Ringdetails im warmen Licht" data-fallback="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85" />
+          </figure>
+          <figure class="gallery__item gallery__item--wide reveal">
+            <img src="header.jpg" alt="Hochzeitsmoment in natürlicher Atmosphäre" data-fallback="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1400&q=85" />
+          </figure>
+          <figure class="gallery__item reveal">
+            <img src="about_me.jpeg" alt="Sabrina Rauch Portrait" data-fallback="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=85" />
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <section class="contact-section" id="contact">
-        <div class="contact-info">
-            <h2>Let's Create Magic</h2>
-            <p>Jede Hochzeit ist einzigartig. Ich freue mich darauf, mehr über eure Pläne zu erfahren.</p>
-            
-            <div class="price-box">
-                <h3>Investition</h3>
-                <p style="color: var(--accent); font-weight: bold; margin-top: 10px;">PREIS AUF ANFRAGE</p>
-                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Da jede Begleitung so individuell ist wie ihr Paar, erstelle ich maßgeschneiderte Pakete.</p>
+    <section class="quote-band" aria-label="Fotografie Philosophie">
+      <div class="container quote-band__inner reveal">
+        <p class="eyebrow">achtsam · ehrlich · zeitlos</p>
+        <blockquote>„Ich suche nicht nach perfekten Posen, sondern nach dem Moment kurz davor – dort, wo Bilder lebendig werden.“</blockquote>
+      </div>
+    </section>
+
+    <section class="about section-padding" id="about">
+      <div class="container about__grid">
+        <div class="about__image reveal">
+          <img src="about_me.jpeg" alt="Portrait von Fotografin Sabrina Rauch" data-fallback="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=85" />
+        </div>
+        <div class="about__content reveal">
+          <p class="eyebrow">Über mich</p>
+          <h2>Hallo, ich bin Sabrina.</h2>
+          <p>Ich fotografiere leise Zwischentöne, lautes Lachen, nervöse Hände, glückliche Tränen und all die Details, die euren Tag unverwechselbar machen.</p>
+          <p>Mein Stil ist dokumentarisch, warm und feinfühlig. Ich gebe euch dort Orientierung, wo sie gut tut, und halte mich zurück, wenn der Moment ganz von selbst passiert.</p>
+          <ul class="check-list" aria-label="Leistungen und Stil">
+            <li>Hochzeitsreportagen vom Getting Ready bis zur Party</li>
+            <li>Paarshootings, Verlobungen und After-Wedding-Sessions</li>
+            <li>Liebevolle Detailaufnahmen von Schmuck, Deko und Atmosphäre</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section-padding">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">So läuft es ab</p>
+          <h2>Entspannt geplant, persönlich begleitet.</h2>
+        </div>
+        <div class="cards cards--three">
+          <article class="card reveal">
+            <span class="card__number">01</span>
+            <h3>Kennenlernen</h3>
+            <p>Wir sprechen über euch, euren Tag und darüber, welche Bilder euch wirklich wichtig sind.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">02</span>
+            <h3>Begleitung</h3>
+            <p>Am Hochzeitstag bin ich ruhig an eurer Seite und halte Momente fest, ohne den Tag zu inszenieren.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card__number">03</span>
+            <h3>Galerie</h3>
+            <p>Ihr bekommt eure Bilder in einer liebevoll kuratierten Onlinegalerie zum Teilen, Downloaden und Bewahren.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer section-padding" id="angebot">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Angebot</p>
+          <h2>Pakete für eure Geschichte</h2>
+          <p>Die folgenden Pakete sind als Orientierung gedacht. Jedes Angebot kann persönlich an euren Tag angepasst werden.</p>
+        </div>
+        <div class="cards cards--four">
+          <article class="price-card reveal">
+            <img src="rings.jpeg" alt="Detailfoto von Eheringen" data-fallback="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85" />
+            <div>
+              <h3>Classic</h3>
+              <p class="price-card__meta">6 Stunden Begleitung</p>
+              <p class="price-card__price">ab 1.600 €</p>
+              <p>Für standesamtliche Feiern, intime Hochzeiten und die wichtigsten Highlights eures Tages.</p>
             </div>
+          </article>
+          <article class="price-card reveal">
+            <img src="header.jpg" alt="Hochzeitsszene in natürlichem Licht" data-fallback="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85" />
+            <div>
+              <h3>Story</h3>
+              <p class="price-card__meta">10 Stunden Reportage</p>
+              <p class="price-card__price">ab 2.300 €</p>
+              <p>Vom Getting Ready bis zum Abend – für eine vollständige, lebendige Erzählung eures Tages.</p>
+            </div>
+          </article>
+          <article class="price-card reveal">
+            <img src="rings2.jpeg" alt="Feine Hochzeitsdetails" data-fallback="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=85" />
+            <div>
+              <h3>All In</h3>
+              <p class="price-card__meta">12 Stunden + Paarshooting</p>
+              <p class="price-card__price">ab 2.900 €</p>
+              <p>Für Paare, die den ganzen Tag, kleine Details und die große Party festhalten möchten.</p>
+            </div>
+          </article>
+          <article class="price-card reveal">
+            <img src="about_me.jpeg" alt="Fotografin bei natürlichem Portrait" data-fallback="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=85" />
+            <div>
+              <h3>Individuell</h3>
+              <p class="price-card__meta">Nach euren Plänen</p>
+              <p class="price-card__price">auf Anfrage</p>
+              <p>Für Elopements, After-Wedding-Shootings, Destination Weddings oder kleinere Begleitungen.</p>
+            </div>
+          </article>
         </div>
-
-        <div class="contact-form">
-            <form action="#">
-                <div class="form-group">
-                    <input type="text" placeholder="NAME" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="EMAIL" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="DATUM DER HOCHZEIT">
-                </div>
-                <div class="form-group">
-                    <textarea rows="5" placeholder="ERZÄHLT MIR VON EUCH..."></textarea>
-                </div>
-                <button type="submit" class="btn">Anfrage Senden</button>
-            </form>
-        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 SABRINA RAUCH | PHOTOGRAPHY ARCHIVE</p>
-    </footer>
+    <section class="contact section-padding" id="kontakt">
+      <div class="container contact__grid">
+        <div class="contact__content reveal">
+          <p class="eyebrow">Kontakt</p>
+          <h2>Erzähl mir von euren Plänen.</h2>
+          <p>Schreibt mir, wann und wo ihr feiert und was euch für eure Bilder wichtig ist. Ich melde mich persönlich bei euch zurück.</p>
+          <div class="contact__details">
+            <a href="mailto:hello@sabrina-rauch.at">hello@sabrina-rauch.at</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ansehen</a>
+          </div>
+        </div>
 
-    <script>
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+        <form class="contact-form reveal" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <label>
+            Name
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            E-Mail
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Datum / Anlass
+            <input name="event" type="text" placeholder="z. B. Hochzeit am 14.06.2026" />
+          </label>
+          <label>
+            Nachricht
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+          <button class="button button--primary" type="submit">Nachricht senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Sabrina Rauch Fotografie</p>
+      <div class="footer__links">
+        <a href="#home">Home</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="mailto:hello@sabrina-rauch.at">E-Mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

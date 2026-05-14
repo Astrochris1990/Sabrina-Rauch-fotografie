@@ -1,47 +1,36 @@
-# Maison Amour — Website für eine Hochzeitsfotografin
+# Sabrina Rauch Fotografie Website
 
-Elegante statische Website mit Portfolio, Angebotssektion und Kontaktformular. Geeignet für GitHub Pages.
+Statische One-Page-Webseite für GitHub Pages.
 
-## Struktur
+## Dateien
 
-```text
-index.html
-assets/css/styles.css
-assets/js/main.js
-assets/img/IMG-20260503-WA0009.jpg
-```
+- `index.html` – Inhalt und Struktur
+- `styles.css` – Design, Layout und Responsive Styling
+- `script.js` – mobiles Menü, Bild-Fallbacks, dezente Scroll-Animationen
 
-## Foto einfügen
+## Bilder
 
-Lege dein Foto in diesen Ordner:
+Lege diese Bilddateien in denselben Ordner wie `index.html`:
 
-```text
-assets/img/IMG-20260503-WA0009.jpg
-```
+- `header.jpg`
+- `about_me.jpeg`
+- `rings.jpeg`
+- `rings2.jpeg`
 
-Der Code referenziert dieses Bild bereits an mehreren Stellen.
+Falls ein Bild fehlt, lädt die Seite automatisch ein lizenzfreies Fallback-Bild von Unsplash. Für die finale Version sollten aber deine eigenen Bilder mit genau diesen Dateinamen im Ordner liegen.
 
-## Kontaktformular aktivieren
+## Auf GitHub Pages veröffentlichen
 
-Aktuell ist ein Mailto-Fallback eingebaut. Für direkten Versand über GitHub Pages:
+1. Neues GitHub Repository erstellen.
+2. Alle Dateien aus diesem Ordner hochladen.
+3. In GitHub unter **Settings → Pages** als Source den Branch `main` und `/root` auswählen.
+4. Speichern. Nach kurzer Zeit ist die Website über GitHub Pages erreichbar.
 
-1. Bei Formspree ein Formular erstellen.
-2. In `index.html` diese Zeile ersetzen:
+## Anpassungen
 
-```html
-<form action="https://formspree.io/f/DEINE-ID" ...>
-```
+Bitte ersetze vor Veröffentlichung:
 
-mit deiner echten Formspree-URL.
-
-## GitHub Pages
-
-1. Dateien in ein GitHub-Repository hochladen.
-2. Unter Settings → Pages den Branch auswählen.
-3. Nach kurzer Zeit ist die Website online.
-
-## Branding anpassen
-
-- Name/Logo: in `index.html` bei `Maison Amour` ändern.
-- E-Mail: `hello@maison-amour.at` ersetzen.
-- Texte: direkt in `index.html` bearbeiten.
+- `hello@sabrina-rauch.at` durch die echte E-Mail-Adresse
+- Instagram-Link im Kontaktbereich
+- Preise und Paketnamen, falls nötig
+- Impressum/Datenschutz, falls die Website öffentlich genutzt wird
