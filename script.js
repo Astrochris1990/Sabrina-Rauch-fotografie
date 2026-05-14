@@ -1,38 +1,45 @@
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
+// Sabrina Rauch Fotografie
+// Kleine, sichere Funktionen für Navigation und sanftes Verhalten.
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav");
+  const navLinks = document.querySelectorAll('a[href^="#"]');
 
-  navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
+  // Navigation beim Scrollen leicht hervorheben
+  const updateNav = () => {
+    if (!nav) return;
+
+    if (window.scrollY > 20) {
+      nav.classList.add("is-scrolled");
+    } else {
+      nav.classList.remove("is-scrolled");
+    }
+  };
+
+  updateNav();
+  window.addEventListener("scroll", updateNav);
+
+  // Sanftes Scrollen zu Bereichen
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      event.preventDefault();
+
+      const navHeight = nav ? nav.offsetHeight : 0;
+      const targetPosition =
+        targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
     });
   });
-}
-
-document.querySelectorAll('img[data-fallback]').forEach((image) => {
-  image.addEventListener('error', () => {
-    if (image.dataset.fallback && image.src !== image.dataset.fallback) {
-      image.src = image.dataset.fallback;
-    }
-  });
 });
-
-const year = document.querySelector('#year');
-if (year) year.textContent = new Date().getFullYear();
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
